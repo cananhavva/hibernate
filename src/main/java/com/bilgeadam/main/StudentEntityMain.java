@@ -7,13 +7,12 @@ public class StudentEntityMain {
 	
 	public static void main(String[] args) {
 		
-		//// Create
-		// for (int i = 0; i < 4; i++) {
-		// StudentEntity studentEntity = new StudentEntity("Hamit", "Mızrak",
-		// "hamitmizrak@gmail.com", "455155");
-		// StudentController studentController1 = new StudentController();
-		// studentController1.create(studentEntity);
-		// }
+		// Create
+		for (int i = 0; i < 4; i++) {
+			StudentEntity studentEntity = new StudentEntity("bilge ", "adam", "bilgeadam@gmail.com", "455155");
+			StudentController studentController1 = new StudentController();
+			studentController1.create(studentEntity);
+		}
 		
 		//// find
 		// StudentController studentController2 = new StudentController();
@@ -27,17 +26,17 @@ public class StudentEntityMain {
 		// studentController3.delete(studentEntity2);
 		
 		// // update
-		// StudentEntity studentEntity4 = new StudentEntity("Melih", "Dumanlı",
-		// "d.dumanli@gmail.com", "111111");
+		// StudentEntity studentEntity4 = new StudentEntity("canan", "arslan",
+		// "canan.havvaarslan@gmail.com", "111111");
 		// studentEntity4.setStudentId(1);
 		// StudentController studentController4 = new StudentController();
 		// studentController4.update(studentEntity4);
 		
 		// list
-		StudentController studentController4 = new StudentController();
-		for (StudentEntity temp : studentController4.list()) {
-			System.out.println(temp);
-		}
+		// StudentController studentController4 = new StudentController();
+		// for (StudentEntity temp : studentController4.list()) {
+		// System.out.println(temp);
+		// }
 		
 	}
 	

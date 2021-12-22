@@ -1,4 +1,4 @@
-package com.bilgeadam.hql;
+package com.bilgeadam.egitim.hql;
 
 import java.util.ArrayList;
 
@@ -11,21 +11,23 @@ import org.hibernate.Session;
 import com.bilgeadam.entity.StudentEntity;
 import com.bilgeadam.util.HibernateUtil;
 
-public class _09_between {
+// merge=update find=find delete=remove insert=persist select=TypedQuery
+public class _12_limit {
 	// logger
-	private static final Logger logger = LogManager.getLogger(_09_between.class);
+	private static final Logger logger = LogManager.getLogger(_12_limit.class);
 	
 	public static void main(String[] args) {
 		// Session
 		Session session = HibernateUtil.getSessionfactory().openSession();
 		
-		String hql = "select stu from  StudentEntity as stu where tcNumber between :minKey and :maxKey";
+		// sql
+		// select * from student limit 5
 		
-		int minValue = 4, maxValue = 7;
+		String hql = "select stu from StudentEntity as stu ";
+		
+		int number = 5;
 		TypedQuery<StudentEntity> typedQuery = session.createQuery(hql, StudentEntity.class);
-		typedQuery.setParameter("minKey", minValue);
-		typedQuery.setParameter("maxKey", maxValue);
-		
+		typedQuery.setMaxResults(number);
 		ArrayList<StudentEntity> studentEntities = (ArrayList<StudentEntity>) typedQuery.getResultList();
 		
 		for (StudentEntity temp : studentEntities) {

@@ -1,4 +1,4 @@
-package com.bilgeadam.hql;
+package com.bilgeadam.egitim.hql;
 
 import javax.persistence.TypedQuery;
 
@@ -8,9 +8,9 @@ import org.hibernate.Session;
 
 import com.bilgeadam.util.HibernateUtil;
 
-public class _06_Aggreagate_avg {
+public class _02_Aggreagate_Count {
 	// logger
-	private static final Logger logger = LogManager.getLogger(_06_Aggreagate_avg.class);
+	private static final Logger logger = LogManager.getLogger(_02_Aggreagate_Count.class);
 	
 	public static void main(String[] args) {
 		// Session
@@ -21,11 +21,12 @@ public class _06_Aggreagate_avg {
 		
 		// SQL count
 		// select count(big_data) from student;
-		String hql = "select avg(tcNumber) from StudentEntity";
+		String hql = "select count(tcNumber) from StudentEntity";
 		
 		// kodlar
-		TypedQuery<Double> typedQuery = session.createQuery(hql, Double.class);
-		Double bigDataCounter = typedQuery.getSingleResult();
+		// count: Long olmak zorundadır
+		TypedQuery<Long> typedQuery = session.createQuery(hql, Long.class);
+		Long bigDataCounter = typedQuery.getSingleResult();
 		logger.info("Sonuç:  " + bigDataCounter);
 		
 	}
